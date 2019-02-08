@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            class Tableau {
+                constructor(destination, longueur, hauteur) {
+                    this.destination = destination;
+                    this.longueur = longueur;
+                    this.hauteur = hauteur;
+                    let tableau = $('<table />');
+                    for (let i=0; i < this.hauteur ; ++i){
+                        let ligne = $('<tr />');
+                        for (let j=0; j < this.longueur; ++j){
+                            let colonne = $('<td />');
+                            colonne.append(j + "/" + i);
+                            ligne.append(colonne);
+                        }
+                        tableau.append(ligne);
+                    }
+                    $(destination).append(tableau);
+                }
+            }
+            let obj = {
+                "niveau 1" : [
+                    '#############',
+                    '#  @  $  .  #',
+                    '#############'
+                ],
+                "autre niveau": [
+                    '###',
+                    '#@#',
+                    '#@#',
+                    '#.#',
+                    '###'
+                ]
+            };
+
+            for(let cle in obj){
+                console.log(cle);
+                let titre = $('<h1 />').append(cle);
+                let button = $('<button> '+ cle + ' </button>').click(function () {
+                    alert("vous avez cliqué sur " + cle);
+
+
+
+                })
+                $('body').append(button);
+                $('body').append(cle);
+                let niveau = obj[cle];
+                let afficherTab = function () {
+                    for (let niv in obj[cle]){
+                        for (let i=0; i < obj[cle].length; ++i){
+                            obj[i];
+                        }
+                    }
+                };
+
+            }
+        })
+
+        //new Tableau('body', 5, 6);
+        //new Tableau('body', 2, 20);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
